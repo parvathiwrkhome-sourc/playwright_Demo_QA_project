@@ -1,6 +1,7 @@
 class AddAccountPage {
   constructor(page) {
     this.page = page;
+    this.formTitle = page.locator('#modal-title');
     this.accountName = page.locator('#account-name');
     this.accountType = page.locator('[data-testid="account-type-select"]');
     this.initialBalance = page.locator('#initial-balance');
@@ -8,8 +9,17 @@ class AddAccountPage {
     this.statusInactive = page.locator('#status-inactive');
     this.enableOverDraft = page.locator('#enable-overdraft');
     this.saveButton = page.locator('#save-account-btn');
+    this.cancelButton = page.locator('#cancel-btn');
     this.successMessage = page.locator('.success');
     this.accountsTable = page.locator('[data-testid="accounts-table"]');
+    this.accountNameFieldError = page.locator('#account-name-error');
+    this.AccountTypeFieldError = page.locator('#account-type-error');
+    this.initialBalanceFieldError = page.locator('#initial-balance-error');
+
+  }
+
+  async isFormVisible() {
+    return await this.formTitle.isVisible();
   }
 
   async enterAccountName(name) {
@@ -43,6 +53,10 @@ class AddAccountPage {
 
   async saveAccount() {
     await this.saveButton.click();
+  }
+
+  async cancelAccount() {
+    await this.cancelButton.click();
   }
 
   async successMessageToast() {

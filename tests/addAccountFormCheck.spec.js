@@ -31,5 +31,11 @@ test('Add Account page title and fields to be visible', async ({ page }) => {
   await expect(addAccountPage.cancelButton).toBeVisible();
 });
 
+test('Show error when mandatory fields are missing', async({ page }) => {
 
+await addAccountPage.saveButton.click();
+await expect(addAccountPage.accountNameFieldError).toBeVisible();
+await expect(addAccountPage.AccountTypeFieldError).toBeVisible();
+await expect(addAccountPage.initialBalanceFieldError).toBeVisible();
+})
 });
