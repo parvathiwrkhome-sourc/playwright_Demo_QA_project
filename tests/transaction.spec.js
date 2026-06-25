@@ -1,6 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const { TransactionsPage } = require('../page-object/transactionPage.js');
-const { LoginPage } = require ('../page-object/LoginPage.js');
+const { LoginPage } = require ('../page-object/loginPage.js');
 
 test.describe('Transactions module', () => {
     let transactionsPage;
